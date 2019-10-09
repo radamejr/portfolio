@@ -1,20 +1,21 @@
-html {
-  position: relative;
-  min-height: 100%;
+html, body {
+  height: 100%;
+  margin: 0;
 }
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+.wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
+}
+.footer{ 
+  height: 50px;
+  box-shadow: 0px 1px 3px #2a2a2a;
+  background: image_url('dark-honeycomb.png');
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background: image_url('dark-honeycomb.png');
-  color: white;
-  padding-top: 20px;
-  margin-top: 20px;
-}
+.push {
+  height: 50px;
+  
+  }

@@ -34,5 +34,10 @@ ul.project-list {
 }
 
 li {
-  overflow-wrap: break-word
+  display: inline-block;
+}
+
+.content {
+  min-height: calc(100vh - 70px);
+  padding: 40px 40px 0 40px;
 }

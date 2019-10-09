@@ -83,7 +83,7 @@
 
     <br class="clear" />
 
-    <div class="content">
+    <div class="wrapper">
       <% if flash[:error].present? %>
         <div class="col-10 offset-1 alert alert-danger">
           <%= flash[:error].html_safe %>
@@ -99,6 +99,7 @@
     
       <%= yield %>
     </div>
+    <div class="push"></div>
 
     <div class="footer">
       <div class="container">

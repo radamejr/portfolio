@@ -5,7 +5,7 @@
       <h1><%= project.title %></h1><br />
       <p><%= project.description %></p><br />
       <p><%= project.utilized %></p>
-      <%= image_tag project.preview.url %>
+      <%= image_tag project.preview.url, class: 'img-fluid' %>
 
 
       <% if user_signed_in? %>
