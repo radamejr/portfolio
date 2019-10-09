@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     @project.update_attributes(project_params)
-    redirect_to project_path(@project)
+    redirect_to projects_path
   end
   
   def create
@@ -41,6 +41,6 @@ class ProjectsController < ApplicationController
 private
 
   def project_params
-    params.require(:project).permit(:title, :description, :utilized)
+    params.require(:project).permit(:title, :description, :utilized, :preview)
   end
 end
