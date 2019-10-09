@@ -1,1 +1,12 @@
-<h2><%= @project.inspect %></h2>
+<ul class="project-list" style="list-style-type: none">
+  <% @projects.each do |project| %>
+
+    <li class="booyah-box col-10 offset-1">
+      <h1><%= project.title %></h1><br />
+      <p><%= project.description %></p><br />
+      <p><%= project.utilized %></p>
+    
+  <% end %>
+</ul>
+
+<!-- class="booyah-box col-5 offset-1" -->
