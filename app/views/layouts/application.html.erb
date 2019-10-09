@@ -53,15 +53,29 @@
             Projects
             <% end %>
           </li>
-          
-          <li class="nav-item">
-            <%= link_to '#', data: {toggle: 'modal', target: '#projectModal'} , class: 'nav-link' do %>
-            Add Project
+          <% if user_signed_in? %>
+            <% if current_user.admin? %>
+              <li class="nav-item">
+                <%= link_to '#', data: {toggle: 'modal', target: '#projectModal'} , class: 'nav-link' do %>
+                Add Project
+                <% end %>
+              </li>
             <% end %>
-          </li>
+          <% end %>
         </ul>
         <ul class="navbar-nav">
-          <!-- eventually add login and other links as needed" -->
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to 'Sign Out', destroy_user_session_path , method: :delete, class: 'nav-link' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </nav>
