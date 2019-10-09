@@ -74,6 +74,14 @@
           <%= flash[:error].html_safe %>
         </div>
       <% end %>
+
+    <% if notice.present? %>
+      <p class="alert alert-info"><%= notice %></p>
+    <% end %>
+    <% if alert.present? %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    
       <%= yield %>
     </div>
 
