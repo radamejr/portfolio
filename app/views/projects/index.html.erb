@@ -2,20 +2,27 @@
   <% @projects.each do |project| %>
 
     <li class="booyah-box col-10 offset-1">
-      <h1><%= project.title %></h1><br />
-      <p><%= project.description %></p><br />
-      <p><%= project.utilized %></p>
-      <%= image_tag project.preview.url, class: 'img-fluid' %>
-
-
-      <% if user_signed_in? %>
-        <% if current_user.admin? %>
-          <div class="float-right">
-            <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-primary' %>
-            <%= link_to 'Begone Project!', project_path(project), method: :delete, data: {confirm: 'You really want to delete this?'}, class: 'btn btn-danger' %>
-          </div>
+      <div class="row">
+        <div class="col-sm-7">
+          <h1><%= project.title %></h1><br />
+          <p><%= project.description %></p><br />
+          <p><%= project.utilized %></p><br />
+          <p><%= link_to 'Check it out!', project.url, target: :_blank %></p>
+        </div>
+        <div class="column col-sm-5 d-none d-sm-none d-md-block">
+        <% if project.preview.present? %>
+          <%= image_tag project.preview.url, class: 'img-fluid' %> 
         <% end %>
-      <% end %>
+        <% if user_signed_in? %>
+          <% if current_user.admin? %>
+            <div>
+              <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-primary' %>
+              <%= link_to 'Begone Project!', project_path(project), method: :delete, data: {confirm: 'You really want to delete this?'}, class: 'btn btn-danger' %>
+            </div>
+          <% end %>
+        <% end %>
+        </div>
+      </div>
       <br/>
       <br/>
       
@@ -25,6 +32,3 @@
   
 </ul>
 
-
-
-<!-- class="booyah-box col-5 offset-1" -->

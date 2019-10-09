@@ -41,3 +41,11 @@ li {
   min-height: calc(100vh - 70px);
   padding: 40px 40px 0 40px;
 }
+
+li#first {
+  float: left;
+}
+
+li#second {
+  float: right;
+}
