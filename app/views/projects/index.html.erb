@@ -2,11 +2,29 @@
   <% @projects.each do |project| %>
 
     <li class="booyah-box col-10 offset-1">
-      <h1><%= link_to project.title, project_path(project) %></h1><br />
+      <h1><%= project.title %></h1><br />
       <p><%= project.description %></p><br />
       <p><%= project.utilized %></p>
-    
+      <%= image_tag project.preview.url %>
+
+
+      <% if user_signed_in? %>
+        <% if current_user.admin? %>
+          <div class="float-right">
+            <%= link_to 'Edit', edit_project_path(project), class: 'btn btn-primary' %>
+            <%= link_to 'Begone Project!', project_path(project), method: :delete, data: {confirm: 'You really want to delete this?'}, class: 'btn btn-danger' %>
+          </div>
+        <% end %>
+      <% end %>
+      <br/>
+      <br/>
+      
+
   <% end %>
+
+  
 </ul>
+
+
 
 <!-- class="booyah-box col-5 offset-1" -->
