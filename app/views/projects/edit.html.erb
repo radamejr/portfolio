@@ -1,0 +1,7 @@
+<h1> EDIT A PROJECT BOI</h1>
+<%= simple_form_for @project do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :utilized %>
+  <%= f.submit 'Edit Project', class: 'btn btn-primary' %>
+<% end %>

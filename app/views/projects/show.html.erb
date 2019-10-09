@@ -1,0 +1,14 @@
+<div class="booyah-box col-10 offset-1">
+  <h1><%= @project.title %></h1>
+  <p><%= @project.description %></p>
+  <p><%= @project.utilized %></p>
+
+  <% if user_signed_in? %>
+    <% if current_user.admin? %>
+      <div class="float-right">
+        <%= link_to 'Edit', edit_project_path(@project), class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  <% end %>
+  <br />
+</div>
