@@ -1,24 +1,22 @@
-# README
+# Portfolio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Portfolio App is exactly that. I built this application from scratch to have a centrilized location to add and showcase my work to those who are interested in what I can do.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+You can visit this application in the wild by clicking [here](http://radamejr.com)
 
-* System dependencies
+## Notable Languages, Systems and Gems Used
 
-* Configuration
+- Ruby on Rails
+- [Devise](https://github.com/plataformatec/devise)
+- [Simple Form](https://github.com/plataformatec/simple_form)
+- [Bootstrap](https://github.com/twbs/bootstrap-rubygem)
+- [Carrierwave](https://github.com/carrierwaveuploader/carrierwave)
 
-* Database creation
 
-* Database initialization
+## Authors
 
-* How to run the test suite
+* **Robert Adame** - [GitHub](https://github.com/radamejr)
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
