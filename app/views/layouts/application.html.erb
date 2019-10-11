@@ -5,8 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'false' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'false' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark">
@@ -21,9 +21,8 @@
       <div class="collapse navbar-collapse" id="profileToggler">
         <ul class="navbar-nav mr-auto mt-2 mt-md-0">
           <li class="nav-item">
-            <%= link_to projects_path, class: 'nav-link' do %>
-            Projects
-            <% end %>
+            <%= link_to 'Projects', projects_path, class: 'nav-link' %>
+                       
           </li>
         </ul>
         <ul class="navbar-nav">

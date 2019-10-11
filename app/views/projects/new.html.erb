@@ -1,0 +1,48 @@
+<div class="booyah-box col-10 offset-1">
+  <%= simple_form_for Project.new do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :utilized %>
+    <%= f.input :url %>
+
+    <%= f.file_field :preview %>
+    <%= f.submit 'Add Project', class: 'btn btn-primary' %>
+  <% end %>
+</div>
+
+<%= link_to 'Add project' , '#', data: {toggle: 'modal', target: '#projectModal'} , class: 'btn btn-primary' %>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#projectModal">
+  Add Project
+</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="projectModal">Add a Project</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= simple_form_for Project.new do |f| %>
+      <div class="modal-body">
+        
+          <%= f.input :title %>
+          <%= f.input :description %>
+          <%= f.input :utilized %>
+          <%= f.input :url %>
+          
+          <%= f.file_field :preview %>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= f.submit 'Add Project', class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

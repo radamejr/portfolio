@@ -8,16 +8,16 @@
         </button>
         <h4 class="modal-title" id="myModalLabel">Add a Project</h4>
       </div>
+      <%= simple_form_for Project.new do |f| %>
       <div class="modal-body">
-       <%= simple_form_for Project.new do |f| %>
+        
           <%= f.input :title %>
           <%= f.input :description %>
           <%= f.input :utilized %>
           <%= f.input :url %>
           <%= f.input :git_url %>
           <%= f.file_field :preview %>
-          
-       
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
