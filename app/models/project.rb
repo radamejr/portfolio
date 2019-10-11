@@ -3,6 +3,7 @@ class Project < ApplicationRecord
   validates :description, presence: true
   validates :utilized, presence: true
   validates :url, presence: true
+  validates :git_url, presence: true
 
   mount_uploader :preview, ThumbnailUploader
 end
