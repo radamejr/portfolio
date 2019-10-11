@@ -1,6 +1,6 @@
 # Portfolio
 
-This Portfolio App is exactly that. I built this application from scratch to have a centrilized location to add and showcase my work to those who are interested in what I can do.
+This Portfolio App is exactly that. I built this application from scratch to have a centralized location to add and showcase my work to those who are interested in what I can do.
 
 ## Getting Started
 
