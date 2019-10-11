@@ -36,9 +36,8 @@
         <div class="col-sm-7">
           <h1><%= project.title %></h1><br />
           <p><%= project.description %></p><br />
+          <h5>Notable languages or gems used:</h5>
           <p><%= project.utilized %></p><br />
-          <p><%= link_to 'Check it out!', project.url, target: :_blank %></p>
-          <p><%= link_to 'Check the Git Repo!', project.git_url, target: :_blank %></p>
         </div>
         <div class="column col-sm-5 d-none d-sm-none d-md-block">
         <% if project.preview.present? %>
@@ -52,6 +51,9 @@
             </div>
           <% end %>
         <% end %>
+        <br />
+        <p><%= link_to 'Check it out!', project.url, target: :_blank %></p>
+        <p><%= link_to 'Check the Git Repo!', project.git_url, target: :_blank %></p>
         </div>
       </div>
       <br/>
