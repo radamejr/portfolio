@@ -4,7 +4,7 @@ This Portfolio App is exactly that. I built this application from scratch to hav
 
 ## Getting Started
 
-You can visit this application in the wild by clicking [here](http://radamejr.com)
+You can visit this application in the wild by clicking [here.](http://radamejr.com)
 
 ## Notable Languages, Systems and Gems Used
 
