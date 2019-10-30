@@ -55,16 +55,17 @@ body {
 .project-box:hover{
   -moz-box-shadow: 4px 6px 0px 0px #d0d0d0;
   -webkit-box-shadow: 4px 6px 0px 0px #d0d0d0;
-  -webkit-transform: scale(1.10);
-  transform: scale(1.10);
+  -webkit-transform: scale(1.07);
+  transform: scale(1.07);
+  z-index: 2;
 }
 
 
 ul.project-list {
-  columns: 2;
+  column-count: 2;
   -webkit-columns: 2;
   -moz-columns: 2;
-  column-width: auto;
+  column-width: 600px;
 }
 
 li {
