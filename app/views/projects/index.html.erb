@@ -36,7 +36,7 @@
         <div class="col-sm-7">
           <h1><%= project.title %></h1><br />
           <p><%= project.description %></p><br />
-          <h5>Notable languages or gems used:</h5>
+          <h5>Languages and Resources utilzed:</h5>
           <p><%= project.utilized %></p><br />
         </div>
         <div class="column col-sm-5 d-none d-sm-none d-md-block">
@@ -52,8 +52,10 @@
           <% end %>
         <% end %>
         <br />
-        <p><%= link_to 'Check it out!', project.url, target: :_blank %></p>
-        <p><%= link_to 'Check the Git Repo!', project.git_url, target: :_blank %></p>
+        <br />
+        <br />
+        <%= link_to 'Demo', project.url, :class => "btn btn-outline-light", target: :_blank %></button>
+        <%= link_to 'GitHub', project.git_url, :class => "btn btn-outline-light", target: :_blank %></button>
         </div>
       </div>
       <br/>

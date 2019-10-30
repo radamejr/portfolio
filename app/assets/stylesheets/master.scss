@@ -19,8 +19,8 @@ body {
 }
 
 .booyah-box {
-  -moz-box-shadow: 2px 3px 0px 0px #d0d0d0;
-  -webkit-box-shadow: 2px 3px 0px 0px #d0d0d0;
+  -moz-box-shadow: 0px 0px 0px 0px #d0d0d0;
+  -webkit-box-shadow: 0px 0px 0px 0px #d0d0d0;
   
   background: image_url('debut_dark.png');
   border: 1px solid #ccc;
@@ -35,11 +35,28 @@ body {
   transition-property: box-shadow, transform;
 }
 
-.booyah-box:hover{
+.project-box {
+  -moz-box-shadow: 0px 0px 0px 0px #d0d0d0;
+  -webkit-box-shadow: 0px 0px 0px 0px #d0d0d0;
+  
+  background: image_url('debut_dark.png');
+  border: 1px solid #ccc;
+  
+  margin-bottom: 15px;
+  padding: 20px;
+  color: white;
+
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+
+.project-box:hover{
   -moz-box-shadow: 4px 6px 0px 0px #d0d0d0;
   -webkit-box-shadow: 4px 6px 0px 0px #d0d0d0;
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05);
+  -webkit-transform: scale(1.10);
+  transform: scale(1.10);
 }
 
 
