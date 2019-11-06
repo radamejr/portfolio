@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :update]
+  before_action :authenticate_user!, only: [:new, :create, :update, :order]
+  
 
+  
 
   def index
     @projects = Project.all
@@ -8,24 +10,40 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    if current_user.admin?
+      @project = Project.new
+    end
   end
 
   
   def edit
-    @project = Project.find(params[:id])
+    if current_user.admin?
+      @project = Project.find(params[:id])
+    end
   end
 
   def destroy
-    @project = Project.find(params[:id])
-    @project.destroy
-    redirect_to projects_path
+    if current_user.admin?
+      @project = Project.find(params[:id])
+      @project.destroy
+      redirect_to projects_path
+    end
+  end
+
+  def order
+    if current_user.admin?
+      @project = Project.find(params[:id])
+      @project.update_attributes(project_params)
+      render plain: 'updated!'
+    end
   end
 
   def update
-    @project = Project.find(params[:id])
-    @project.update_attributes(project_params)
-    redirect_to projects_path
+    if current_user.admin?
+      @project = Project.find(params[:id])
+      @project.update_attributes(project_params)
+      redirect_to projects_path
+    end
   end
   
   def create
@@ -39,6 +57,6 @@ class ProjectsController < ApplicationController
 private
 
   def project_params
-    params.require(:project).permit(:title, :description, :utilized, :preview, :url, :git_url)
+    params.require(:project).permit(:title, :description, :utilized, :preview, :url, :git_url, :row_order_position)
   end
 end

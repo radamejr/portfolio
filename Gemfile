@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'popper_js', '~> 1.14.5'
 gem 'simple_form'
 gem 'devise'
@@ -48,6 +49,7 @@ gem 'figaro'
 gem 'fog-aws'
 
 gem 'font-awesome-rails'
+gem 'ranked-model'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'

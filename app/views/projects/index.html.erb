@@ -27,11 +27,12 @@
     </div>
   </div>
 </div>
+
 <br>
 <ul class="col-10 offset-1 project-list" style="list-style-type: none">
-  <% @projects.each do |project| %>
+  <% @projects.rank(:row_order).each do |project| %>
 
-    <li class="booyah-box col-10 offset-1 project-box">
+    <li data-update-url="<%= project_path(project) %>", class="booyah-box col-10 offset-1 project-box">
       <div class="row">
         <div class="col-sm-7">
           <h1><%= project.title %></h1><br />
@@ -79,3 +80,18 @@
 <br />
 <br />
 <br />
+
+<script>
+  $(function() {
+      $('.project-list').sortable({
+        update: function( event, ui) {
+          $.ajax({
+            type: 'PUT',
+            url: ui.item.data('update-url'),
+            dataType: 'json',
+            data: {project: { row_order_position: ui.item.index() } }
+          });
+        }
+      });
+  });
+</script>

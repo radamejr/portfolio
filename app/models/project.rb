@@ -6,4 +6,7 @@ class Project < ApplicationRecord
   validates :git_url, presence: true
 
   mount_uploader :preview, ThumbnailUploader
+
+  include RankedModel
+  ranks :row_order
 end
