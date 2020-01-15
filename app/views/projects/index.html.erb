@@ -14,6 +14,7 @@
           <%= f.input :title %>
           <%= f.input :description %>
           <%= f.input :utilized %>
+          <%= f.input :viewable_heroku %>
           <%= f.input :url %>
           <%= f.input :git_url %>
           <%= f.file_field :preview %>
@@ -55,7 +56,11 @@
         <br />
         <br />
         <br />
-        <%= link_to 'Demo', project.url, :class => "btn btn-outline-light", target: :_blank %></button>
+        <% if project.viewable_heroku %>
+          <%= link_to 'Demo', project.url, :class => "btn btn-outline-light", target: :_blank %></button>
+        <% else %>
+          <%= link_to 'API Only', project.url, :class => "btn btn-outline-light disabled", target: :_blank %></button>
+        <% end %>
         <%= link_to 'GitHub', project.git_url, :class => "btn btn-outline-light", target: :_blank %></button>
         </div>
       </div>
