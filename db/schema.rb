@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_155150) do
+ActiveRecord::Schema.define(version: 2020_01_15_224549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_11_06_155150) do
     t.string "url"
     t.string "git_url"
     t.integer "row_order"
+    t.boolean "viewable_heroku", default: true
     t.index ["row_order"], name: "index_projects_on_row_order"
   end
 
