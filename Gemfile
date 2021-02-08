@@ -43,7 +43,7 @@ gem 'jquery-ui-rails'
 gem 'popper_js', '~> 1.14.5'
 gem 'simple_form'
 gem 'devise'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 
 gem 'figaro'
 gem 'fog-aws'
