@@ -14,27 +14,12 @@ import {
   education,
   skillGroups,
 } from "~/data/resume";
-import { seededInt } from "~/lib/helpers";
+import { seededInt, formatDisplayUrl } from "~/lib/helpers";
 import { Avatar } from "~/components/Avatar";
+import CardComponent from "~/components/CardComponent";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: `${person.displayName} | LinkedIn-style profile` }];
-}
-
-function Card({
-  children,
-  className = "",
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <section
-      className={`rounded-lg border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900 ${className}`}
-    >
-      {children}
-    </section>
-  );
 }
 
 export default function LinkedIn() {
@@ -91,16 +76,16 @@ export default function LinkedIn() {
       <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
         {/* Main column */}
         <div className="flex flex-col gap-4 lg:col-span-2">
-          <Card>
+          <CardComponent>
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
               About
             </h2>
             <p className="mt-2 text-sm leading-relaxed whitespace-pre-line text-gray-700 dark:text-gray-300">
               {person.summary}
             </p>
-          </Card>
+          </CardComponent>
 
-          <Card>
+          <CardComponent>
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
               Experience
             </h2>
@@ -167,9 +152,9 @@ export default function LinkedIn() {
                 ))}
               </div>
             </div>
-          </Card>
+          </CardComponent>
 
-          <Card>
+          <CardComponent>
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
               Education
             </h2>
@@ -196,9 +181,9 @@ export default function LinkedIn() {
                 </div>
               ))}
             </div>
-          </Card>
+          </CardComponent>
 
-          <Card>
+          <CardComponent>
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
               Skills
             </h2>
@@ -225,12 +210,12 @@ export default function LinkedIn() {
                 </div>
               ))}
             </div>
-          </Card>
+          </CardComponent>
         </div>
 
         {/* Sidebar */}
         <div className="flex flex-col gap-4">
-          <Card>
+          <CardComponent>
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
               Contact info
             </h2>
@@ -252,13 +237,13 @@ export default function LinkedIn() {
                   rel="noreferrer"
                   className="truncate hover:text-[#0A66C2] hover:underline"
                 >
-                  {person.links.website.replace("https://", "")}
+                  {formatDisplayUrl(person.links.website)}
                 </a>
               </li>
             </ul>
-          </Card>
+          </CardComponent>
 
-          <Card>
+          <CardComponent>
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
               At a glance
             </h2>
@@ -280,7 +265,7 @@ export default function LinkedIn() {
                 </dd>
               </div>
             </dl>
-          </Card>
+          </CardComponent>
         </div>
       </div>
     </main>

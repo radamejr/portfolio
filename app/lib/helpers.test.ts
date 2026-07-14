@@ -5,6 +5,7 @@ import {
   seededBool,
   formatShortDate,
   formatMonthYear,
+  formatDisplayUrl,
   eventIcon,
   contributionLevel,
   CONTRIBUTION_WEEKS,
@@ -59,6 +60,16 @@ describe("formatShortDate", () => {
 describe("formatMonthYear", () => {
   it("formats as 'Month YYYY'", () => {
     expect(formatMonthYear(new Date("2020-02-01"))).toBe("February 2020");
+  });
+});
+
+describe("formatDisplayUrl", () => {
+  it("strips the https:// prefix", () => {
+    expect(formatDisplayUrl("https://radamejr.com")).toBe("radamejr.com");
+  });
+
+  it("leaves a url without an https:// prefix unchanged", () => {
+    expect(formatDisplayUrl("radamejr.com")).toBe("radamejr.com");
   });
 });
 

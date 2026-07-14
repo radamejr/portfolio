@@ -1,34 +1,15 @@
 import type { Route } from "./+types/facebook";
-import {
-  ThumbsUp,
-  MessageCircle,
-  Share2,
-  Briefcase,
-  GraduationCap,
-  MapPin,
-  Mail,
-  Link2,
-} from "lucide-react";
+import { Briefcase, GraduationCap, MapPin, Mail, Link2 } from "lucide-react";
 import { person, experience, earlyCareer, education } from "~/data/resume";
-import {
-  seededInt,
-  formatMonthYear,
-  eventIcon,
-  type LifeEventKind,
-} from "~/lib/helpers";
+import { formatMonthYear, eventIcon, formatDisplayUrl } from "~/lib/helpers";
 import { Avatar } from "~/components/Avatar";
+import CardComponent from "~/components/CardComponent";
+import ReactionBar from "~/components/ReactionBar";
+import type { LifeEvent, LifeEventKind } from "~/lib/types";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: `${person.displayName} | Facebook-style timeline` }];
 }
-
-type LifeEvent = {
-  id: string;
-  date: Date;
-  kind: LifeEventKind;
-  headline: string;
-  body?: string;
-};
 
 const jobStartEvents: LifeEvent[] = experience.map((job) => ({
   id: `${job.id}-start`,
@@ -67,33 +48,6 @@ const eventsByYear = events.reduce<Map<number, LifeEvent[]>>((map, ev) => {
   map.set(year, list);
   return map;
 }, new Map());
-
-function ReactionBar({ seed }: { seed: string }) {
-  return (
-    <>
-      <div className="flex items-center gap-1.5 px-4 pt-3 text-xs text-gray-500 dark:text-gray-400">
-        <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#1877F2] text-white">
-          <ThumbsUp className="h-2.5 w-2.5" fill="currentColor" />
-        </span>
-        {seededInt(`like-${seed}`, 8, 340)}
-        <span className="ml-auto">
-          {seededInt(`comment-${seed}`, 0, 40)} comments
-        </span>
-      </div>
-      <div className="mx-4 mt-2 grid grid-cols-3 gap-1 border-t border-gray-100 pt-1 text-sm font-medium text-gray-500 dark:border-gray-800 dark:text-gray-400">
-        <button className="flex items-center justify-center gap-1.5 rounded py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
-          <ThumbsUp className="h-4 w-4" /> Like
-        </button>
-        <button className="flex items-center justify-center gap-1.5 rounded py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
-          <MessageCircle className="h-4 w-4" /> Comment
-        </button>
-        <button className="flex items-center justify-center gap-1.5 rounded py-1.5 hover:bg-gray-100 dark:hover:bg-gray-800">
-          <Share2 className="h-4 w-4" /> Share
-        </button>
-      </div>
-    </>
-  );
-}
 
 export default function Facebook() {
   return (
@@ -151,7 +105,7 @@ export default function Facebook() {
       <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-5">
         {/* Intro sidebar */}
         <div className="flex flex-col gap-4 lg:col-span-2">
-          <section className="rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-gray-900">
+          <CardComponent>
             <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
               Intro
             </h2>
@@ -191,11 +145,11 @@ export default function Facebook() {
                   rel="noreferrer"
                   className="truncate hover:underline"
                 >
-                  {person.links.website.replace("https://", "")}
+                  {formatDisplayUrl(person.links.website)}
                 </a>
               </li>
             </ul>
-          </section>
+          </CardComponent>
         </div>
 
         {/* Timeline */}

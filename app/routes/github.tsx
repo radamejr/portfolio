@@ -13,22 +13,18 @@ import {
 import { person, allSkills, experience } from "~/data/resume";
 import {
   seededInt,
+  formatDisplayUrl,
   contributionLevel,
   CONTRIBUTION_WEEKS,
   CONTRIBUTION_DAYS,
 } from "~/lib/helpers";
 import { Avatar } from "~/components/Avatar";
+import type { Repo } from "~/lib/types";
+import RepoComponent from "~/components/Repo";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: `${person.handle} | GitHub-style profile` }];
 }
-
-type Repo = {
-  name: string;
-  description: string;
-  language: string;
-  color: string;
-};
 
 const repos: Repo[] = [
   {
@@ -143,7 +139,7 @@ export default function GitHub() {
                 rel="noreferrer"
                 className="hover:underline"
               >
-                {person.links.website.replace("https://", "")}
+                {formatDisplayUrl(person.links.website)}
               </a>
             </li>
           </ul>
@@ -182,35 +178,7 @@ export default function GitHub() {
             </h2>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {repos.map((repo) => (
-                <div
-                  key={repo.name}
-                  className="flex flex-col rounded-md border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-gray-900"
-                >
-                  <div className="flex items-center gap-1.5 text-sm font-semibold text-sky-700 dark:text-sky-400">
-                    <BookMarked className="h-4 w-4 text-gray-400" />
-                    {repo.name}
-                  </div>
-                  <p className="mt-2 flex-1 text-xs text-gray-600 dark:text-gray-400">
-                    {repo.description}
-                  </p>
-                  <div className="mt-3 flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
-                    <span className="flex items-center gap-1.5">
-                      <span
-                        className="h-2.5 w-2.5 rounded-full"
-                        style={{ backgroundColor: repo.color }}
-                      />
-                      {repo.language}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Star className="h-3.5 w-3.5" />{" "}
-                      {seededInt(`star-${repo.name}`, 3, 340)}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <GitFork className="h-3.5 w-3.5" />{" "}
-                      {seededInt(`fork-${repo.name}`, 0, 60)}
-                    </span>
-                  </div>
-                </div>
+                <RepoComponent key={repo.name} repo={repo} />
               ))}
             </div>
           </section>

@@ -1,6 +1,9 @@
 // Central collection of pure helper functions used across the platform pages.
 
 import { Briefcase, GraduationCap } from "lucide-react";
+import type { Route } from "../+types/root";
+import { person } from "~/data/resume";
+import type { LifeEventKind } from "~/lib/types";
 
 // --- Deterministic "flavor" numbers -----------------------------------
 // Every platform skin invents some cosmetic stats (likes, stars, followers).
@@ -47,9 +50,13 @@ export function formatMonthYear(date: Date): string {
   return monthYearFmt.format(date);
 }
 
-// --- Facebook life-event icon ---------------------------------------------
+// --- URL formatting --------------------------------------------------------
 
-export type LifeEventKind = "job-start" | "job-end" | "education";
+export function formatDisplayUrl(url: string): string {
+  return url.replace("https://", "");
+}
+
+// --- Facebook life-event icon ---------------------------------------------
 
 export function eventIcon(kind: LifeEventKind) {
   return kind === "education" ? GraduationCap : Briefcase;
