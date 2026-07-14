@@ -1,87 +1,51 @@
-# Welcome to React Router!
+# radamejr.com — an interactive résumé
 
-A modern, production-ready template for building full-stack React applications using React Router.
+**Live at [radamejr.com](https://radamejr.com)**
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+My résumé, rendered as itself and as four "platform skins" — LinkedIn,
+Twitter/X, Facebook, and GitHub — all generated from one dataset. Same
+experience, education, and skills; four different native-feeling layouts,
+plus a plain résumé view. It's a personal, non-commercial stylistic homage —
+not affiliated with LinkedIn, X Corp., Meta, or GitHub, and the tabs aren't
+links to my real accounts (see the notice on the home page).
 
-## Features
+## What's in here
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- **Single source of truth.** Every page reads from `app/data/resume.ts` —
+  edit it once, all five pages update.
+- **Deterministic "flavor" data.** Like counts, follower numbers, the GitHub
+  contribution graph (which spells something if you look closely) — all
+  seeded from stable hashes, not `Math.random()`, so they're identical on
+  every render with no hydration mismatches.
+- **React Router 7** (SPA mode) + **TypeScript** + **Tailwind CSS v4**.
+- **100% test coverage** — Vitest + React Testing Library across every
+  component, route, and helper.
+- **Deployed automatically** to S3 + CloudFront via GitHub Actions on every
+  push to `master`.
 
-## Getting Started
+## Pages
 
-### Installation
+| Route       | What it is              |
+| ----------- | ----------------------- |
+| `/`         | Plain résumé            |
+| `/linkedin` | LinkedIn-style profile  |
+| `/twitter`  | Twitter/X-style feed    |
+| `/facebook` | Facebook-style timeline |
+| `/github`   | GitHub-style profile    |
 
-Install the dependencies:
+## Development
 
 ```bash
 npm install
+npm run dev         # start the dev server at http://localhost:5173
+npm test             # run the test suite
+npm run coverage     # run tests with a coverage report
+npm run typecheck
+npm run format        # format with Prettier
 ```
 
-### Development
+## Built by
 
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+Built by me, [Robert Adame](https://radamejr.com), with the help of AI
+coding tools (Claude Code) — pairing hands-on engineering with AI-assisted
+development, which is itself part of what this site is demonstrating.
