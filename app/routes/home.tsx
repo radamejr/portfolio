@@ -96,10 +96,16 @@ export default function Home() {
           </p>
         )}
 
-        <p className="mt-6 text-xs text-gray-400 dark:text-gray-600">
-          Use the tabs above to browse this same data reimagined as LinkedIn,
-          Twitter/X, Facebook, and GitHub profiles.
-        </p>
+        <div className="mt-6 max-w-md rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-xs text-gray-500 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400">
+          <strong className="text-gray-700 dark:text-gray-300">
+            Heads up:
+          </strong>{" "}
+          the tabs above aren&apos;t links to my real LinkedIn, X, Facebook, or
+          GitHub accounts. They&apos;re this same résumé data restyled to look
+          like each platform — a demo of what I can build, not my actual
+          profiles. (My real ones are linked above.) Stylistic homage only, not
+          affiliated with LinkedIn, X Corp., Meta, or GitHub.
+        </div>
       </div>
 
       {/* Summary */}
@@ -214,11 +220,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      <p className="mt-14 text-center text-xs text-gray-400 dark:text-gray-600">
-        Every tab above renders from this same data. Stylistic homage only — not
-        affiliated with LinkedIn, X Corp., Meta, or GitHub.
-      </p>
     </main>
   );
 }
